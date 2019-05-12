@@ -9,37 +9,29 @@ object DataService {
         Category("SHIRTS","shirtimage"),
         Category("HOODIES","hoodieimage"),
         Category("HATS","hatimage"),
-        Category("DIGITAL","digitalgoodsimage"),
-        Category("SHIRTS","shirtimage"),
-        Category("HOODIES","hoodieimage"),
-        Category("HATS","hatimage"),
-        Category("DIGITAL","digitalgoodsimage"),
-        Category("SHIRTS","shirtimage"),
-        Category("HOODIES","hoodieimage"),
-        Category("HATS","hatimage"),
         Category("DIGITAL","digitalgoodsimage")
     )
 
     val hats = listOf(
-        Product("Devslopes Graphic Beanie","$18","hat1"),
-        Product("Devslopes Black Hat","$21","hat2"),
-        Product("Devslopes White Hat","$21","hat3"),
-        Product("Devslopes Snapback Hat","$118","hat4")
+        Product("Devslopes Graphic Beanie","$18","hat1","Super slick graphic beanie hat"),
+        Product("Devslopes Black Hat","$21","hat2","Rad AF black hat ftw"),
+        Product("Devslopes White Hat","$21","hat3","White wicked hat time"),
+        Product("Devslopes Snapback Hat","$118","hat4","Flat brim snapback wearable back or front")
     )
 
     val hoodies = listOf(
-        Product("Devslopes Hoodie Grey","$28","hoodie1"),
-        Product("Devslopes Hoodie Red","$41","hoodie2"),
-        Product("Devslopes Hoodie Grey","$41","hoodie3"),
-        Product("Devslopes Hoodie Black","$48","hoodie4")
+        Product("Devslopes Hoodie Grey","$28","hoodie1","Grey hoodie - charcoal is cool AF"),
+        Product("Devslopes Hoodie Red","$41","hoodie2","Red hoodie, so red it's like a devil"),
+        Product("Devslopes Hoodie Grey","$41","hoodie3","Super slick graphic hoodie in grey"),
+        Product("Devslopes Hoodie Black","$48","hoodie4","Black goody hoodie")
     )
 
     val shirts = listOf(
-        Product("Devslopes Shirt Black","$28","shirt1"),
-        Product("Devslopes Shirt Light Grey","$41","shirt2"),
-        Product("Devslopes Shirt Red","$41","shirt3"),
-        Product("Devslopes Hustle","$41","shirt4"),
-        Product("Kickflip Studios","$48","shirt5")
+        Product("Devslopes Shirt Black","$28","shirt1","Black shirt, looks good on ladies and gents"),
+        Product("Devslopes Shirt Light Grey","$41","shirt2","Light grey cool shirt"),
+        Product("Devslopes Shirt Red","$41","shirt3","Red ted bed head shirt"),
+        Product("Devslopes Hustle","$41","shirt4","Everyday we hustling, hustling hustling"),
+        Product("Kickflip Studios","$48","shirt5","Kickflip is the new studio winner, buy this shirt to full rep it")
     )
 
     val digitalgoods = listOf<Product>()

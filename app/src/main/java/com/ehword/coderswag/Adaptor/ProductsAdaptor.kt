@@ -7,16 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.ehword.coderswag.Model.Category
 import com.ehword.coderswag.Model.Product
 import com.ehword.coderswag.R
-import kotlinx.android.synthetic.main.product_list_item.view.*
 
-class ProductsAdaptor (val context: Context, val products: List<Product>) : RecyclerView.Adapter<ProductsAdaptor.ProductHolder>() {
+class ProductsAdaptor (val context: Context, val products: List<Product>, val itemClick: (Product) -> Unit) : RecyclerView.Adapter<ProductsAdaptor.ProductHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.product_list_item, parent,false)
-        return ProductHolder(view)
+        return ProductHolder(view,itemClick)
     }
 
     override fun getItemCount(): Int {
@@ -24,13 +24,13 @@ class ProductsAdaptor (val context: Context, val products: List<Product>) : Recy
     }
 
     override fun onBindViewHolder(holder: ProductHolder, position: Int) {
-        holder?.bindProduct(products[position],context)
+        holder.bindProduct(products[position],context)
     }
 
-    inner class ProductHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
-        val productImage = itemView?.findViewById<ImageView>(R.id.productImage)
-        val productName = itemView?.findViewById<TextView>(R.id.productName)
-        val productPrice = itemView?.findViewById<TextView>(R.id.productPrice)
+    inner class ProductHolder (itemView: View,val itemClick: (Product) -> Unit) : RecyclerView.ViewHolder(itemView){
+        val productImage = itemView.findViewById<ImageView>(R.id.productImage)
+        val productName = itemView.findViewById<TextView>(R.id.productName)
+        val productPrice = itemView.findViewById<TextView>(R.id.productPrice)
 
         fun bindProduct(product: Product, context: Context)
         {
@@ -38,6 +38,7 @@ class ProductsAdaptor (val context: Context, val products: List<Product>) : Recy
             productImage?.setImageResource(resourceId)
             productName?.text = product.title
             productPrice?.text = product.price
+            itemView.setOnClickListener{ itemClick(product) }
         }
 
     }
