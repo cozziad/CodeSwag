@@ -3,4 +3,6 @@
     <string name="hats">HATS</string>
     <string name="image_background">Image Background</string>
     <string name="categories">Categories</string>
+    <string name="products">Products</string>
+    <string name="beanie">Beanie</string>
 </resources>

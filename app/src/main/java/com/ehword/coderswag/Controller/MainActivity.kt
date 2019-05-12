@@ -1,14 +1,13 @@
 package com.ehword.coderswag.Controller
 
-import android.content.AbstractThreadedSyncAdapter
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.widget.Toast
-import com.ehword.coderswag.Adaptor.CategoryAdaptor
 import com.ehword.coderswag.Adaptor.CategoryRecycleAdaptor
 import com.ehword.coderswag.R
 import com.ehword.coderswag.Services.DataService
+import com.ehword.coderswag.Utilities.EXTRA_CATEGORY
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +18,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        adapter = CategoryRecycleAdaptor(this,DataService.categories)
+        adapter = CategoryRecycleAdaptor(this,DataService.categories) {
+            category -> val productIntent = Intent(this, ProductsActivity::class.java)
+            productIntent.putExtra(EXTRA_CATEGORY,category.title)
+            startActivity(productIntent)
+        }
         categoryListView.adapter = adapter
 
 //        categoryListView.setOnItemClickListener { adaptorView, view, i, l ->
@@ -29,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager (this)
         categoryListView.layoutManager = layoutManager
         categoryListView.setHasFixedSize(true)
+
+
 
     }
 }
